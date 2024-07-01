@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="estilo/styleProducts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+  <nav>
+    <button><a href="index.html">Inicio</a></button>
+  </nav>
+  <div class="contenedor">
+    <div id="nuevo-producto" class="nuevoProducto" >
+      <div class="cabecera">
+        <h1>Nuevo producto</h1>
+      </div>
+        <form id="form">
+          <div class="form-control">
+            <label for="titulo">Titulo del producto</label>
+            <input id="titulo" type="text">
+            <p> </p>
+          </div>
+          <br>    
+          <div class="form-control">
+            <label for="precioAR">Precio en pesos</label>
+            <input id="precioAR" type="number">
+            <p> </p>
+          </div>
+          <br>
+          <div class="form-control">
+            <label for="precioUSD">Precio en dolares</label>
+            <input id="precioUSD" type="number">
+            <p> </p>
+          </div>
+          <br>
+          <div class="form-control">
+            <label for="fecha">Fecha del producto</label>
+            <input id="fecha" type="datetime">
+            <p> </p>
+          </div>
+          <br>
+          <button onclick="NewProduct()" class="NuevoButton" >Crear el nuevo producto</button>
+        </form>
+    </div>
+  </div>
+  <footer>
+    
+  </footer>
+      <script type="text/javascript" src="scrip/javasPorducts.js"></script>
+</body>
+</html>

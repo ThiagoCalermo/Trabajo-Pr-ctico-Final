@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar</title>
+    <link rel="stylesheet" href="estilo/styleProducts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="estilo/styleProducts.css">
+</head>
+<body>
+    <nav>
+        <button><a href="index.html">Inicio</a></button>
+    </nav>
+    <div class="contenedor">
+        <div id="nuevo-producto" class="nuevoProducto" >
+          <div class="cabecera">
+            <h1>Modificar producto</h1>
+          </div>
+            <form id="form">
+              <div class="form-control">
+                    <label for="idcod">IdCod del producto a Modificar</label>
+                    <input id="idcod" type="text">
+                    <p> </p>
+              </div><br>
+              <div class="form-control">
+                <label for="titulo">Titulo del nuevo</label>
+                <input id="titulo" type="text">
+                <p> </p>
+              </div>
+              <br>    
+              <div class="form-control">
+                <label for="precioAR">Precio en pesos nuevo</label>
+                <input id="precioAR" type="number">
+                <p> </p>
+              </div>
+              <br>
+              <div class="form-control">
+                <label for="precioUSD">Precio en dolares nuevo</label>
+                <input id="precioUSD" type="number">
+                <p> </p>
+              </div>
+              <br>
+              <div class="form-control">
+                <label for="fecha">Fecha del producto nuevo</label>
+                <input id="fecha" type="datetime">
+                <p> </p>
+              </div>
+              <br>
+              <button onclick="ModificarProducto()" class="NuevoButton" >Modificar el nuevo producto</button>
+            </form>
+        </div>
+      </div>
+      <script src="scrip/javaModifP.js"></script>
+    <footer>
+
+    </footer>
+</body>
+</html>

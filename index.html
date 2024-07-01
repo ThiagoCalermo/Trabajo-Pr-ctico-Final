@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Trabajo final</title>
+    <link rel="stylesheet" href="estilo/style.css">
+  </head>
+  <body>
+    <nav>
+      <div class="productos">
+        <button onclick="ObtenerProductos()" class="listaProducts">Lista de productos</button>
+      </div>
+      <button><a href="productos.html">producto nuevo</a></button>
+      <button><a href="modificarP.html">Modificar algun producto</a></button>
+      <button onclick="MostrarBorrar()">Eliminar elemento</button>
+      <input type="text" class="borrarid" id="borraridInput" placeholder="Ingrese el IdCod">
+      <button class="borrarid" id="borraridButton" onclick="BorrarElemento()">Borrar</button>
+    </nav>
+    <h1>Lista de productos</h1>
+    <div id="lista" class="lista" >
+      <table>
+        <thead>
+          <tr>
+            <th>IdCod</th>
+            <th>Título</th>
+            <th>Precio AR$</th>
+            <th>Precio U$D</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody id="resultados"></tbody>
+      </table>
+    </div>
+    <footer></footer>
+    <script src="scrip/javas.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </body>
+</html>

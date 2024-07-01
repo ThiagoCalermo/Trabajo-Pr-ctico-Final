@@ -1,0 +1,82 @@
+nav{
+    border: 1px, solid ;
+    border-color: black;
+    background-color: #bdecb6;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+    display: flex;
+    border-width: 5px;
+    padding: 10px;
+    width: 100%;
+    height: 40px;
+}
+footer{
+    border: 1px, solid ;
+    border-color: black;
+    background-color: #bdecb6;
+    border-width: 5px;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+}
+
+button{
+    background-color: black;
+    color: #ea899e;
+}
+body{
+    background-color: #ea899e;
+    position: relative;
+}
+table{
+    width: 1000px;
+    padding: 5px;
+    border: 1px, solid ;
+    border-color: black;
+    background-color: #bdecb6;
+    border-width: 5px;
+    margin-bottom: 100px;
+}
+tr{
+    border: 1px, solid ;
+    
+    border-color: black; 
+}
+th{
+    background-color: black;
+    color: #ea899e;
+}
+tbody{      
+    border: 1px, solid ;
+    border-color: black;   
+}
+.lista{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+.borrarid{
+    display: none;
+}
+.borrarid-on{ 
+    background-color: black;
+    color: #ea899e;  
+}
+a{
+    text-decoration: none;
+    color: #ea899e;
+}
+.productos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
