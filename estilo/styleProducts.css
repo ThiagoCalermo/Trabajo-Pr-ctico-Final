@@ -109,4 +109,54 @@ a{
     visibility: visible;
     color: red;
 }
+@media (max-width: 1420px) {
+    
+    #form {
+        font-size: 14px; 
+        padding: 8px 4px; 
+    }
+    .contenedor {
+        font-size: 14px; 
+        padding: 8px 4px; 
+    }
+
+   .btn {
+        font-size: 16px; 
+        padding: 8px 6px; 
+    }
+}
+
+@media (max-width: 768px) {
+   
+    #form {
+      font-size: 14px; 
+      padding: 8px 4px; 
+    }
+    .contenedor {
+        font-size: 14px; 
+        padding: 8px 4px; 
+    }
+  
+    .btn {
+      font-size: 16px; 
+      padding: 8px 6px; 
+    }
+  }
+  
+  @media (max-width: 576px) {
+    
+    #form {
+        font-size: 12px; 
+        padding: 4px 2px; 
+    }
+    .contenedor {
+        font-size: 14px; 
+        padding: 8px 4px; 
+    }
+  
+    .btn {
+      font-size: 14px; 
+      padding: 6px 4px; 
+    }
+  }
 

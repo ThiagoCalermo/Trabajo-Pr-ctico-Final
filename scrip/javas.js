@@ -25,8 +25,8 @@ function cargarListaProductos(data  ) {
         <td>${data[i].precioDolar}</td>
         <td>${data[i].fecha}</td>
         <td>
-          <button class="btn" onclick="editarProducto('${data[i].idcod}')">Editar</button>
-          <button class="btn" onclick="borrarProducto('${data[i].idcod}')">Borrar</button>
+          <button style="width: 40%;" class="btn" onclick="editarProducto('${data[i].idcod}')">Editar</button>
+          <button style="width: 40%;" class="btn" onclick="borrarProducto('${data[i].idcod}')">Borrar</button>
         </td>
       </tr>`;
   };
