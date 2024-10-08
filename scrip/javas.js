@@ -1,64 +1,103 @@
-let urlBase='https://api.yumserver.com/16753/products';
-function ObtenerProductos(){
+const urlBase="https://api.yumserver.com/16753/products";
+
+
+function CargarProductos() {
+  document.getElementById('lista').setAttribute('style','display:flex');
+  document.getElementById('EditarProducto').setAttribute('style','display:none');
   fetch(urlBase)
-    .then(response=>response.json())
-    .then(data => MostrarProductos(data))
-    .catch(error=>console.error('Error: ',error));   
-}
-const MostrarProductos= (data) =>{
-  let html='';
-  for(let i=0;i<data.length;i++){
-    const linn=''+data[i].idcod+'';
-    html +=`
-            <tr >
-                 <td  style="padding: 15px;"><b>${data[i].idcod}</b></td>
-                 <td style="padding: 15px;"><b>${data[i].titulo}</b></td>
-                 <td style="padding: 15px;">${data[i].precioPeso}</td>
-                 <td style="padding: 15px;">${data[i].precioDolar}</td>
-                 <td style="padding: 15px;">${data[i].fecha}</td>
-            </tr>     
-        `
-        
-        console.log(linn);
-  }
-  document.getElementById('resultados').innerHTML=html;
-}
-function BorrarElemento(){
-  const id=document.getElementById('borraridInput');
-  const idvalor=id.value.trim();
-  Borrar(idvalor);
+    .then(response => response.json())
+    .then(productos => {
+      cargarListaProductos(productos);
+      
+    })
+    .catch(error => console.error('Error:', error));
 }
 
-function Borrar(idcod) {
-  if (confirm(`¿Borrar el producto con el ID: ${idcod}?`)) {
-    fetch(`${urlBase}/${idcod}`, {
-      method: 'DELETE'
+
+function cargarListaProductos(data  ) {
+  let html = '';
+  for (let i = 0; i < data.length; i++) {
+    html += `
+      <tr>
+        <td>${data[i].idcod}</td>
+        <td>${data[i].titulo}</td>
+        <td>${data[i].precioPeso}</td>
+        <td>${data[i].precioDolar}</td>
+        <td>${data[i].fecha}</td>
+        <td>
+          <button class="btn" onclick="editarProducto('${data[i].idcod}')">Editar</button>
+          <button class="btn" onclick="borrarProducto('${data[i].idcod}')">Borrar</button>
+        </td>
+      </tr>`;
+  };
+  document.getElementById('resultados').innerHTML = html;
+}
+
+
+function editarProducto(idcod) {
+  
+  fetch(`${urlBase}/${idcod}`)
+    .then(response => response.json())
+    .then(producto => {
+     
+      document.getElementById('IdCod').value = producto.idcod;
+      document.getElementById('titulo').value = producto.titulo;
+      document.getElementById('precioAR').value = producto.precioPeso;
+      document.getElementById('precioUSD').value = producto.precioDolar;
+      document.getElementById('fecha').value = producto.fecha;
+      
+      document.getElementById('lista').setAttribute('style', 'display:none');
+      document.getElementById('EditarProducto').setAttribute('style','display:flex');
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+
+
+function GuardarCambios() {
+  const data = {
+    idcod: document.getElementById('IdCod').value,
+    titulo: document.getElementById('titulo').value,
+    precioPeso: document.getElementById('precioAR').value,
+    precioDolar: document.getElementById('precioUSD').value,
+    fecha: document.getElementById('fecha').value
+  };
+
+  fetch(`${urlBase}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:',error));
+    alert('Se modificó un producto');
+}
+
+
+function borrarProducto(idcod) {
+  if (window.confirm(`¿Estás seguro de que deseas eliminar el producto con el idcod ${idcod}?`)) {
+    fetch(urlBase, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ idcod })
     })
       .then(response => response.text())
-      .then(function (texto) {
-        if (texto.trim() === "OK") {
-          alert(`Producto de ID ${idcod} borrado.`);
-          ObtenerProductos(); 
+      .then(result => {
+        if (result.trim() == 'OK') {
+          alert('Producto eliminado correctamente.');
+         
         } else {
-          alert(texto);
+          throw new Error(result);
         }
       })
-      .catch(error => console.error('Error:', error));
-  } else {
-    
-  }
-}
+      .catch(error => {
+        console.error(error);
 
-
-function MostrarBorrar(){
-  var inputBorrar= document.getElementById('borraridInput');
-  var buttonBorrar= document.getElementById('borraridButton');
-  if(inputBorrar.className==="borrarid" && buttonBorrar.className==="borrarid"){
-    inputBorrar.className="borrarid-on";
-    buttonBorrar.className="borrarid-on";
-  }else{
-    inputBorrar.className="borrarid";
-    buttonBorrar.className="borrarid";
+        alert('Error al eliminar el producto');
+      
+      });
   }
 }
+
 

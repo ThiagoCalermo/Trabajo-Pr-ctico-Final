@@ -85,7 +85,6 @@ async function NewProduct(){
           .then(response=>response.text())
           .then(
               function(texto){
-                  alert(texto);
                   if(texto.trim()=="OK"){
                       alert('Se creo el producto con exito.');
                   }else{
